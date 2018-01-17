@@ -12,8 +12,11 @@
     for(var i=1;i<array.length;i++){
       alert(array[i])
     }
+    
 > 标准的for循环
+
     for(var i in array){
       alert(array[i])
     }
+
 > foreach循环
