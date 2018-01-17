@@ -6,13 +6,13 @@
 + 行内块元素：img,button,input等
 > 区别：行内元素不可以设置宽高，不独立成行,块元素独立成行，可以设置宽高,行内块元素不独立成行，可以设置宽高。
 ## js
-#### for和foreach(for in)的区别
+#### for循环和foreach循环(for in)的区别
     
     var array=['a']
     for(var i=1;i<array.length;i++){
       alert(array[i])
     }
-    
+
 > 标准的for循环
 
     for(var i in array){
