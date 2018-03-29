@@ -20,3 +20,22 @@
     }
 
 > foreach循环
+#### vue获取url并分离出参数
+    urlParse(){
+          let obj = {};
+          let reg = /[?&][^?&]+=[^?&%]+/g;
+          let url = window.location.href;
+          // console.log(url)
+          // let url ="http://wwww.baidu.com?treeLevel=3&gldw=1&value=628a1a5c-2ad6-491d-96b0-f83ec8f96c36&type=1";
+          let arr = url.match(reg);
+          arr.forEach((item) => {
+              let tempArr = item.substring(1).split('=');
+              let key = decodeURIComponent(tempArr[0]);
+              let val = decodeURIComponent(tempArr[1]);
+              obj[key] = val;
+          })
+          return obj;
+      }
+
+      Request = this.urlParse()
+> Request是一个对象
