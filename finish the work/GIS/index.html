@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GIS</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="easyui.css">
+    <link rel="stylesheet" href="iconfont.css">  
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+</head>
+<body>
+	<div class="serch">
+		<form class="form-inline">
+			<div class="form-left">
+				<div class="form-group select">
+			    	<label for=""></label>
+			    	<select class="form-control" id="select">
+			    		<option value="">客户编号</option>
+			    		<option value="">设备名称</option>
+			    		<option value="">坐标</option>
+			    	</select>
+				</div>
+				<div class="form-group jwd">
+			    	<label for="">经度</label>
+			    	<input type="text" class="form-control">
+				</div>
+				<div class="form-group jwd">
+			    	<label for="">纬度</label>
+			    	<input type="text" class="form-control">
+				</div>
+				<div class="form-group name-num">
+			    	<input type="text" class="form-control">
+				</div>
+			</div>
+			<button type="submit" class="default">
+				<i class="icon iconfont icon-kuangxuanchaxun"></i>
+				 &nbsp;&nbsp;查询
+			</button>
+		</form>
+	</div>
+	<div class="gjx">
+		<div class="check">
+			<form class="form-inline">
+				<div class="form-check">
+					<div class="form-group">
+						<input type="checkbox">
+				    	<label for="">文字提示</label>
+					</div>
+					<div class="form-group">
+						<input type="checkbox">
+				    	<label for="">台区</label>
+				    	
+					</div>
+					<div class="form-group">
+						<input type="checkbox">
+				    	<label for="">停电区域</label>
+					</div>
+				</div>
+				<div class="slide">
+					<i class="icon iconfont icon-gongjuxiang"></i>
+					<span>工具箱</span>
+					<i class="icon iconfont icon-jiantoushang"></i>
+				</div>
+			</form>
+		</div>
+		<div class="easyui-accordion" data-options="multiple:true" style="width:227px;">
+			<div title="工具箱" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+				<ul class="list">
+					<li>
+	                	<i class="icon iconfont icon-dianjidakaigongjuxiang"></i>
+	                	<span>点击打开工具箱</span>
+	                </li>
+	                <li>
+	                	<i class="icon iconfont icon-tucengguanli"></i>
+	                	<span>图层管理</span>
+	                </li>
+	            </ul>
+			</div>
+			<div title="常用操作" style="padding:10px;">
+				<ul class="list">
+					<li>
+	                	<i class="icon iconfont icon-piliangtianjiashebei"></i>
+	                	<span>批量添加设备</span>
+	                </li>
+					<li style="border-bottom:1px solid #cccccc;">
+						<i class="icon iconfont icon-biaozhu"></i>
+						<span>标注</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-wailunkuo"></i>
+						<span>外轮廓</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-xianlulianjie"></i>
+						<span>线路连接</span>
+					</li>
+					<li style="border-bottom:1px solid #cccccc;">
+						<i class="icon iconfont icon-xianluleixingzhuanhuan"></i>
+						<span>线路类型转换</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-dianyuandianshunxuzhuizong"></i>
+						<span>电源点顺序追踪</span>
+					</li>
+					<li style="border-bottom:1px solid #cccccc;">
+						<i class="icon iconfont icon-dianyuandiannixuzhuizong"></i>
+						<span>电源点逆序追踪</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-shanchu"></i>
+						<span>删除</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-yidong"></i>
+						<span>移动</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-kuangxuanchaxun"></i>
+						<span>框选查询</span>
+					</li>
+				</ul>
+			</div>
+			<div title="常用工具" style="padding:10px;">
+				<ul class="list">
+					<li>
+						<i class="icon iconfont icon-changduceju"></i>
+						<span>长度测距</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-mianjiceju"></i>
+						<span>面积测距</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-kuangxuanchaxun"></i>
+						<span>显示坐标</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-zhuatu"></i>
+						<span>抓图</span>
+					</li>
+					<li>
+						<i class="icon iconfont icon-quanping"></i>
+						<span>全图显示</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		$("#select").change(function(){
+			var text=$("#select").find("option:selected").text()
+			if(text=="设备名称"){
+				$(".name-num").show()
+				$(".jwd").hide()
+			}else if(text=="坐标"){
+				$(".name-num").hide()
+				$(".jwd").show()
+			}else{
+				$(".name-num").show()
+				$(".jwd").hide()
+			}
+			// else{
+			// 	$(".name-num").show()
+			// 	$(".jwd").hide()
+			// 	$(".name-num label").text($(this).text())
+			// }
+		})
+		$(".slide").click(function(){
+			var attr=$(".slide i").eq(1).attr("class")
+			if(attr=="icon iconfont icon-jiantoushang"){
+				$(".slide i").eq(1).attr("class","icon iconfont icon-jiantouxia")
+				$(".easyui-accordion").slideDown()
+			}
+			else{
+				$(".slide i").eq(1).attr("class","icon iconfont icon-jiantoushang")
+				$(".easyui-accordion").slideUp()
+			}
+			// $(this).children().ep(1).attr("class","")
+		})
+	</script>
+</body>
+</html>
