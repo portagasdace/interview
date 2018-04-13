@@ -41,17 +41,18 @@
 > Request是一个对象
 #### vue配置webpack引入jquery
 ##### 1.npm install jquery --save-dev 引入jquery模块保存的package.json
-##### 2.找到build文件夹下的webpack.base.conf.js文件，打开，添加：
-var webpack=require('webpack')
+##### 2.找到build文件夹下的webpack.base.conf.js文件，打开，添加：varwebpack=require('webpack')<br>
 ![avatar](https://img-blog.csdn.net/20171218184459929)
 ##### 3.在module.exports里输入:
-  plugins: [ 
-           new webpack.ProvidePlugin({ 
-                 $:"jquery", 
-                 jQuery:"jquery", 
-                "windows.jQuery":"jquery"
-        }) 
-      ],
+
+    plugins: [ 
+             new webpack.ProvidePlugin({ 
+                   $:"jquery", 
+                   jQuery:"jquery", 
+                  "windows.jQuery":"jquery"
+          }) 
+        ],
+<br>
 ![avatar](https://img-blog.csdn.net/20171218184525067)
 ##### 4.在入口文件main.js中输入：import $ from 'jquery'
 ![avatar](https://img-blog.csdn.net/20171218184551635)
