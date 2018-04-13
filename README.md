@@ -52,7 +52,6 @@
                   "windows.jQuery":"jquery"
           }) 
         ],
-<br>
 ![avatar](https://img-blog.csdn.net/20171218184525067)
 ##### 4.在入口文件main.js中输入：import $ from 'jquery'
 ![avatar](https://img-blog.csdn.net/20171218184551635)
