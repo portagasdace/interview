@@ -23,7 +23,7 @@
 
 ## Vue
 
-#### vue获取url并分离出参数
+### vue获取url并分离出参数
     urlParse(){
           let obj = {};
           let reg = /[?&][^?&]+=[^?&%]+/g;
@@ -43,7 +43,7 @@
       Request = this.urlParse()
 > Request是一个对象
 
-#### vue配置webpack引入jquery
+### vue配置webpack引入jquery
 ##### 1.npm install jquery --save-dev 引入jquery模块保存的package.json
 ##### 2.找到build文件夹下的webpack.base.conf.js文件，打开，添加：var webpack=require('webpack')<br>
 ![avatar](https://img-blog.csdn.net/20171218184459929)
@@ -60,3 +60,26 @@
 ##### 4.在入口文件main.js中输入：import $ from 'jquery'
 ![avatar](https://img-blog.csdn.net/20171218184551635)
 ##### 5.从新 npm run dev
+
+### vue配置webpack引入less
+##### 1.npm install less less-loader --save-dev
+##### 2.安装成功后，打开 build/webpack.base.conf.js ，在 module.exports = 的对象的 module.rules 后面添加一段
+
+  module.exports = {
+    //  此处省略无数行，已有的的其他的内容
+    module: {
+        rules: [
+          //  此处省略无数行，已有的的其他的规则
+          {
+            test: /\.less$/,
+            loader: "style-loader!css-loader!less-loader",
+          }
+        ]
+    }
+  }
+
+##### 3.在代码中的 style 标签中 加上 lang="less" 属性即可
+
+  <style scoped lang="less">
+
+  </style>
